@@ -1,0 +1,52 @@
+<div class="card-container">
+  <md-card *ngFor="let presentation of presentations">
+    <md-card-header>
+      <img md-card-avatar src="../../images/{{presentation.image}}" />
+      <md-card-title>{{presentation.title}}</md-card-title>
+      <md-card-subtitle>{{presentation.presenter}}</md-card-subtitle>
+    </md-card-header>
+    <md-card-content>{{presentation.description}}</md-card-content>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <md-card-footer>
+      <md-card-actions>
+        <button md-button color="primary" class="button-bottom" (click)="attending(presentation.title)">Attend</button>
+      </md-card-actions>
+    </md-card-footer>
+  </md-card>
+  <div class="form" *ngIf="formShowing">
+    <md-card>
+      <md-card-title>Add a presentation</md-card-title>
+      <form #f="ngForm" (ngSubmit)="addPresentation(f.value)" novalidate>
+        <md-card-content>
+          <md-input-container>
+            <input md-input placeholder="Title" name="title" [(ngModel)]="newPresentation.title">
+          </md-input-container>
+          <md-input-container>
+            <input md-input placeholder="Presenter" name="presenter" [(ngModel)]="newPresentation.presenter">
+          </md-input-container>
+          <md-input-container>
+            <input md-input placeholder="Image of presenter" name="image" [(ngModel)]="newPresentation.image">
+          </md-input-container>
+          <md-input-container>
+            <textarea md-input md-autosize minRows="10" placeholder="Description" name="description" [(ngModel)]="newPresentation.description"></textarea>
+          </md-input-container>
+        </md-card-content>
+        <br />
+        <br />
+        <br />
+        <br />
+        <md-card-footer>
+          <md-card-actions>
+            <button md-raised-button color="primary" class="button-bottom" type="submit">Add</button>
+          </md-card-actions>
+        </md-card-footer>
+      </form>
+    </md-card>
+  </div>
+</div>
+<button md-fab (click)="formShowing=!formShowing">
+  <md-icon>+</md-icon>
+</button>

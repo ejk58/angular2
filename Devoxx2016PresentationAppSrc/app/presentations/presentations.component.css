@@ -1,0 +1,43 @@
+
+.card-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+md-card {
+  width: 410px;
+  box-sizing: border-box;
+  margin: 16px;
+}
+
+md-card-actions {
+  text-align: right;
+}
+
+md-card-actions button {
+  margin: 16px !important;
+}
+
+md-card-content {
+  line-height: 1.4;
+}
+
+.button-bottom {
+  right: 20px;
+}
+
+.form {
+  display: flex;
+}
+
+md-input-container {
+  margin: 8px 0;
+  width: 100%;
+}
+
+[md-fab] {
+  position: absolute;
+  right: 3%;
+  top: 34px;
+  z-index: 1;
+}
